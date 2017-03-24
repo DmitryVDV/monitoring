@@ -8,7 +8,8 @@ class MetersController < ApplicationController
 
   def meter_data
     @meters = Meter.all
-   # puts render json: @meters
+    
+   puts render json: @meters
   end
 
   def create
@@ -28,7 +29,7 @@ class MetersController < ApplicationController
       puts row[:meter_date]
         
       if @db_values.save
-        @db_values_error = '{ 'Error
+        
       end 
     end     
      
@@ -52,5 +53,6 @@ end
       #params.require(:meter).permit(:meter_value, :meter_date)
        #params.require(:meter).permit(:id_device)
       # params.require(:meter).permit(meters_arr: [:meter_value,:mater_date])
+      params.permit(:id_device, {meters_arr: [:meter_value, :meter_date]})
     end
 end

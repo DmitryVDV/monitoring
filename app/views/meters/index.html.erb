@@ -53,29 +53,7 @@
     }
     
 }); 
-setInterval(function () {
-$.getJSON("/meters/meter_data.json", function(externaldata) {
-   var length1 = externaldata.length;
-   var last = externaldata[length1 - 1];
 
-   console.log(last);
-    chart1.flow({
-        
-        json: [last],
-        
-        keys: {  // keys of json data
-            
-                value: ['meter_date','meter_value']
-            },
-
-        //length: 1    
-        
-        
-        
-       
-    });
-});
-}, 15000); 
 
    
     </script>
