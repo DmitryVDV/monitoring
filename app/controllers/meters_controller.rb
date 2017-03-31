@@ -8,8 +8,7 @@ class MetersController < ApplicationController
 
   def meter_data
     @meters = Meter.all
-
-   #puts render json: @meters
+    render json: @meters
   end
 
   def create
