@@ -8,13 +8,22 @@ class MetersController < ApplicationController
 
   def meter_data
     @meters = Meter.all
-    
-   puts render json: @meters
+
+   #puts render json: @meters
   end
 
   def create
     # Чтобы достучаться до массива в JSON, нужно делать так, потом доступ к параметрам puts @post_value[:meters_arr][0][:meter_value]
-      
+    
+
+
+    request.headers.each do |single|
+      puts "---------------"
+      puts single
+    end
+    
+    puts @http_params
+
     @post_value = params.permit(:id_device, {meters_arr: [:meter_value, :meter_date]})
     @post_value[:meters_arr].each do |row|
       

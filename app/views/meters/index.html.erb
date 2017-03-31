@@ -9,11 +9,12 @@
 
 </head>
 <body>
+<div class="container">    
 <p style="font-size: 22px;">
    график
   </p>
 
-  <div id="chart1"></div>
+  <div class="container" id="chart1"></div>
 
     <script type="text/javascript"> 
 
@@ -58,15 +59,34 @@
    
     </script>
 
-
-  
-  
-    <% @meters.each do |m| %>
-      
-        <p class="text-center">
-          <%=  m.meter_value.to_s %>
-        </p>
-    <% end %>
-      
+  <div class="container">
+    
+    <div class="table-responsive">
+      <table class="table-striped">
+        <tbody>
+           <% @meters.each do |m| %>
+           <tr>
+              <td>
+                <div class="container">
+                  <p class="text-center">
+                    <%=  m.meter_value.to_s %>
+                  </p>
+                </div>
+              </td>
+              <td>
+                <div class="container">
+                  <p class="text-center">
+                    <%=  m.meter_date.to_s %>
+                  </p>
+                </div>
+              </td>
+            </tr>
+           <% end %>
+        </tbody>
+      </table>
+    
+  </div>
+  </div>
+</div>
 </body>
 </html>
